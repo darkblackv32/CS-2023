@@ -24,19 +24,19 @@ int main()
     cout << "*b:   " << *b << endl;     // a value: 5
     cout << "&*b:  " << &*b << endl;    // a memory address
     
-    cout << "*c:   " << *c << endl;       // b value : a memory address
-    cout << "**c:  "<< **c << endl;      // a value: 5
-    cout << "&**c: "<< &**c << endl;    // a memory address
+    // cout << "*c:   " << *c << endl;       // b value : a memory address
+    // cout << "**c:  "<< **c << endl;      // a value: 5
+    // cout << "&**c: "<< &**c << endl;    // a memory address
     
 
-    cout << boolalpha;      // true false
-    /*
-        b = int*        int pointer
-        &b = int**      pointer to int pointer
-    */
-    // cout << (b == &b) << endl;      // false
-    cout << (*b == a) << endl;      // true
-    cout << (&a == &*b) << endl;    // true
+    // cout << boolalpha;      // true false
+    // /*
+    //     b = int*        int pointer
+    //     &b = int**      pointer to int pointer
+    // */
+    // // cout << (b == &b) << endl;      // false
+    // cout << (*b == a) << endl;      // true
+    // cout << (&a == &*b) << endl;    // true
 }
 
 /*
