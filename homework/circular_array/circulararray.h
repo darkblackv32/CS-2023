@@ -16,6 +16,7 @@ public:
     CircularArray(int _capacity){
         capacity = _capacity;
     };
+    
     virtual ~CircularArray();
 
     void push_front(T data){
@@ -27,7 +28,9 @@ public:
     T pop_back();
     
     bool is_full();
-    bool is_empty();
+    bool is_empty(){
+        return (size_ == 0);
+    };
     int size();
     
     void resize(int new_capacity);

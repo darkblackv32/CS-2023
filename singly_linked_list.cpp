@@ -46,7 +46,7 @@ public:
 
     }
 
-    void delete(){
+    void del(){
 
     }
 
@@ -67,12 +67,13 @@ public:
 
 int main(){
 
-    SLL<char> l1;
+    SLL<string> l1;
 
     cout << boolalpha << l1.is_empty();
 
-    l1.pb('a');
-    l1.pb('n');
+    l1.pb("The Beatles");
+    l1.pb("-");
+    l1.pb(" Across The Universe");
 
     cout << boolalpha << l1.is_empty()<<endl;
 
