@@ -3,20 +3,20 @@
 using namespace std;
 
 
-// template<typename T>
+template<typename T>
 
 struct node{
-    int value;
-    node *nextId;
+    T value;
+    node<T> *nextId;
 };
 
 
 
-// template<typename T>
+template<typename T>
 class SLL{
 private:
-    node *head;
-    node *tail;
+    node<T> *head;
+    node<T> *tail;
 public:
     SLL(){
         tail = nullptr;
@@ -27,14 +27,14 @@ public:
         return (head == nullptr);
     }
 
-    void pb(int val){
+    void pb(T val){
 
-        node* newNode = new node;
+        node<T>* newNode = new node<T>;
         newNode->value = val; 
         newNode->nextId = nullptr; //! cos it's the last element
 
-        if(!is_empty()){
-            node *curr = head;
+        if(!is_empty()){ // not empty
+            node<T> *curr = head;
             while(curr->nextId != nullptr){
                 curr = curr->nextId;
             }
@@ -44,14 +44,21 @@ public:
 
         else head = newNode;
 
+    }
+
+    void delete(){
+
+    }
+
+    void update(){
 
     }
 
     void print(){
-        node *curr = head;
+        node<T> *curr = head;
         while(curr != nullptr)
         {
-            cout << curr->value;
+            cout << curr->value << " ";
             curr = curr->nextId;
         }
     }
@@ -60,21 +67,17 @@ public:
 
 int main(){
 
-    SLL l1;
+    SLL<char> l1;
 
     cout << boolalpha << l1.is_empty();
 
-    l1.pb(8);
-    l1.pb(10);
+    l1.pb('a');
+    l1.pb('n');
 
     cout << boolalpha << l1.is_empty()<<endl;
 
     l1.print();
     
-
-
-
-
 
 
     return 0;
