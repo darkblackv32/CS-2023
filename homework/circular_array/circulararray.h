@@ -13,10 +13,14 @@ protected:
     int back, front;    // indirection markers
 public:
     CircularArray();
-    CircularArray(int _capacity);
+    CircularArray(int _capacity){
+        capacity = _capacity;
+    };
     virtual ~CircularArray();
 
-    void push_front(T data);
+    void push_front(T data){
+        
+    };
     void push_back(T data);
     void insert(T data, int pos);
     T pop_front();
