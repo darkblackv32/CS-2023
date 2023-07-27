@@ -17,7 +17,7 @@ public:
         capacity = _capacity;
     };
     
-    virtual ~CircularArray();
+    virtual ~CircularArray(){};
 
     void push_front(T data){
         

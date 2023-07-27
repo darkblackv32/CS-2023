@@ -4,6 +4,8 @@
 
 using namespace std;
 
+void t1(), t2();
+
 int main() {
 
     CircularArray<int>* array = new CircularArray<int>(7);
@@ -30,13 +32,35 @@ int main() {
     // ASSERT(array->to_string() == "15 10 8 7 4 3 2 ", "The function reverse is not working");   
     // delete array;       // ! possibly SEGFAULT
 
+
+    // t1();
+    // t2();
+
+
     return 0;
 }
 
 
 
-    // int a = 5;
-    // cout << a++ << endl;        // 5
-    // // a = 6
-    // cout << ++a << endl;        // 7
-    // // a = 7
+void t1(){
+
+    int a = 5;
+    cout << a++ << endl;     // returns the value of a before the increment 5
+    cout << a << endl;       // 6
+    cout << ++a << endl;     // ++a returns the value after the increment 7
+
+}
+
+void t2(){
+
+    int arr[5] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+
+    cout << *ptr << endl; // 1 pointer points to the first element in the array
+    cout << *ptr++ << endl; // *ptr=2 but it will print 1 (var++)
+    cout << *++ptr << endl; // 3, next postition
+    cout << ++*ptr << endl; // 4, next position
+    cout << (*ptr)++ << endl; // *ptr=5 but it will print 4 (var++) 
+    cout << *ptr << endl; // 5
+
+}
