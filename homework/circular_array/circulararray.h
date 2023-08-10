@@ -9,18 +9,20 @@ class CircularArray
 {
 protected:
     T *array = nullptr;           // for runtime resizing
-    int size_ = 0;
-    int capacity;       // for table doubling
+    int size_ = 0;      // # elementos actuales
+    int capacity;       // # espacios separados en memoria | for table doubling
     int back, front;    // indirection markers
 public:
     CircularArray(){
         array = new T[size_];
-        capacity = 0;
+        capacity = size_;
         back, front = 0;
     };
+    
     CircularArray(int _capacity){
-        array = new T[size_];
+        // cout << __PRETTY_FUNCTION__ << " -> " << size_ << endl;
         capacity = _capacity;
+        array = new T[capacity];       // ? new int[0];
         back, front = 0;
     };
     
@@ -76,20 +78,25 @@ public:
     };
     
     bool is_full(){
-        return next(back) == front;
+        return size_ == capacity;       // back == front && 
     };
+
     bool is_empty(){
         return size_ == 0;
     };
+    
     int size(){
         return size_;
     };
     
-    void resize(int new_capacity){
-        if(new_capacity > capacity){
+    void resize(int new_capacity)
+    {
+        if(new_capacity > capacity)
+        {
             T* new_array = new T[new_capacity];
             int aux = front;
-            for (int i = 0; i < size_; i++){
+            for (int i = 0; i < size_; i++)
+            {
                 new_array[i] = array[aux];
                 aux = next(aux);
             }
@@ -111,13 +118,11 @@ public:
     string to_string(string sep = " ") {
         string result;
 
-        cout << "\t" << this->front << " " << this->back << endl;
+        // cout << "\tmarcadores: " << this->front << " " << this->back << endl;
         int idx = front;
         for (int i = 0; i < size_; i++) {
-            if (i > 0) {
-                result += sep;
-            }
             result += std::to_string(array[idx]);
+            result += sep;
             idx = next(idx);
         }
         return result;
