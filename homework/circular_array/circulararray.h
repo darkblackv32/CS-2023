@@ -110,6 +110,8 @@ public:
 
     string to_string(string sep = " ") {
         string result;
+
+        cout << "\t" << this->front << " " << this->back << endl;
         int idx = front;
         for (int i = 0; i < size_; i++) {
             if (i > 0) {
