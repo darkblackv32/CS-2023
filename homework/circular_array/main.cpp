@@ -27,8 +27,8 @@ int main() {
     // ASSERT(array->is_sorted() == false, "The function is_sorted is not working");
     // array->sort();
     // ASSERT(array->to_string() == "2 3 4 7 8 10 15 ", "The function sort is not working");
-    // array->reverse();
-    // ASSERT(array->to_string() == "15 10 8 7 4 3 2 ", "The function reverse is not working");   
+    array->reverse();
+    ASSERT(array->to_string() == "15 10 8 7 4 3 2 ", "The function reverse is not working");   
     delete array;       // ! possibly SEGFAULT
 
     return 0;

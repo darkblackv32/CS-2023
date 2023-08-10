@@ -58,7 +58,8 @@ public:
     void insert(T data, int pos);
 
     T pop_front(){
-        if(!is_empty()){
+        if(!is_empty())
+        {
             T aux = array[front];
             front = next(front);
             size_--;
@@ -68,13 +69,19 @@ public:
     };
 
     T pop_back(){
-        if(!is_empty()){
+        if(!is_empty())
+        {
             back = prev(back);
             T aux = array[back];
             size_--;
             return aux;
         }
-       return T();
+        // else cerr/throw
+        
+
+        // if (size_ < capacity/2)
+        //     resize(capacity/2);
+        return T();
     };
     
     bool is_full(){
@@ -84,7 +91,7 @@ public:
     bool is_empty(){
         return size_ == 0;
     };
-    
+
     int size(){
         return size_;
     };
