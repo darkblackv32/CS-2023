@@ -20,8 +20,8 @@ private:
 public:
 
     SLL(){
-        tail = nullptr;
         head = nullptr;
+        tail = nullptr;
     }
 
     bool is_empty(){
@@ -91,13 +91,21 @@ public:
         }
     }
 
+    // void clear(){
+    //     while(head!= nullptr){
+    //         Nodo<T>* temp = head;
+    //         head = head->next;
+    //         delete temp;
+    //     }
+    // }
 };
+
 
 
 int main(){
 
     // ex1();
-    ex2();
+    // ex2();
     // ex3();
    
     return 0;
@@ -150,6 +158,3 @@ void ex2(){
     l2.display();
 }
 
-void ex3(){
-
-}

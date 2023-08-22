@@ -56,6 +56,21 @@
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "files.associations": {
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "any": "cpp",
+    "*.tcc": "cpp",
+    "charconv": "cpp",
+    "compare": "cpp",
+    "optional": "cpp",
+    "random": "cpp",
+    "limits": "cpp",
+    "new": "cpp",
+    "numeric": "cpp",
+    "cmath": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "utility": "cpp",
+    "valarray": "cpp",
+    "variant": "cpp"
   }
 }
