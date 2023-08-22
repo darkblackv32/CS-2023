@@ -28,7 +28,7 @@ public:
         return (head == nullptr);
     }
 
-    void pb(T val){
+    void push_back(T val){
 
         node<T>* newNode = new node<T>;
         newNode->value = val; 
@@ -44,7 +44,7 @@ public:
         else head = newNode;
     }
 
-    void pf(T val)
+    void push_front(T val)
     {
         node<T>* newNode = new node<T>;
         newNode->value = val;
@@ -52,6 +52,26 @@ public:
         head = newNode;
     }
 
+    void pop_front(){
+        node<T> *temp = head;
+        head = head->next;
+        delete temp;
+    }
+
+    void pop_back(){
+
+        if(!(head->next == nullptr)){
+            node<T> *temp = head;
+            while(temp->next->next != nullptr){
+                temp = temp->next;
+            }
+            delete temp->next;
+            temp->next = nullptr;
+        }
+
+        delete head;
+        head = nullptr;
+    } 
 
     void del(){
 
@@ -61,8 +81,9 @@ public:
 
     }
 
-    void print(){
+    void display(){
         node<T> *curr = head;
+        // cout << "list: " << " ";
         while(curr != nullptr)
         {
             cout << curr->value << " ";
@@ -88,13 +109,13 @@ void ex1(){
 
     // cout << boolalpha << l1.is_empty() << endl;;
 
-    // l1.pb("The Beatles");
-    // l1.pb("-");
-    // l1.pb(" Across The Universe");
+    // l1.push_back("The Beatles");
+    // l1.push_back("-");
+    // l1.push_back(" Across The Universe");
     // cout <<
     // cout << boolalpha << l1.is_empty() << endl;
 
-    // l1.print();
+    // l1.display();
 }
 
 void ex2(){
@@ -103,19 +124,32 @@ void ex2(){
 
     cout << boolalpha << l2.is_empty() << endl;
 
-    l2.pb(5);
-    l2.pb(3);
-    l2.pb(8);
-    l2.pb(1);
+    l2.push_back(5);
+    // l2.push_back(3);
+    // l2.push_back(8);
+    // l2.push_back(1);
 
-    l2.pf(88);
-    l2.pf(77);
+    // l2.push_front(88);
+    // l2.push_front(77);
 
-    l2.pb(14);
-    l2.pb(51);
+    // l2.push_back(14);
+    // l2.push_back(51);
 
-    l2.pf(99);
-    l2.pf(90);
+    // l2.push_front(99);
+    // l2.push_front(90);
 
-    l2.print();
+    // l2.pop_front();
+    // l2.pop_front();
+    // l2.pop_front();
+    // l2.pop_front();
+
+    l2.display();
+
+    l2.pop_back();
+
+    l2.display();
+}
+
+void ex3(){
+
 }
