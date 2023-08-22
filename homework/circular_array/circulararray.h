@@ -116,10 +116,54 @@ public:
     };
 
 
-    void clear();
-    T &operator[](int index);
-    void sort();
-    bool is_sorted();
+    void clear(){
+        back = front = 0;
+        resize(3);
+    };
+
+
+    T &operator[](int index); // O(n)
+
+    
+    void merge(int arr[]){
+        T* arr1 = new T[size_ / 2];
+        T* arr2 = new T[size_ - size_ / 2];
+        
+        for(int i = 0; i < (size_/2); i++){
+            arr1[i] = array[i];
+        }
+
+        for(int i = 0; i > (size_/2); i++){
+            arr2[i] = array[i];
+        }
+
+        arr1 = merge(arr1);
+        arr2 = merge(arr2);
+
+        for(int i = 0; i < size_; i++){
+            if(i < size_/2)
+                array[i] = arr1[i];
+            else 
+                array[i] = arr2[i];
+        }
+    }
+
+
+    void sort(){
+        
+        merge(array[]);
+        
+
+    };
+
+    bool is_sorted(){ //! is there a better way? 
+        for(int i = 0;  i < size_; i++){
+            if(array[i - 1] > array[i])
+                return false;
+        }
+    return true;
+    };
+
     void reverse();
 
     string to_string(string sep = " ") {
