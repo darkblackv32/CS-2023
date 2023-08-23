@@ -62,8 +62,8 @@ Node* intersect(Node* head1, Node* head2){
     return (temp.next);
 }
 
-Node* unionn(Node* head1, Node* head2){
-    Node temp;
-    Node* prev = &temp;
-    temp.next = nullptr; 
-}
+// Node* union(Node* head1, Node* head2){
+//     Node temp;
+//     Node* prev = &temp;
+//     temp.next = nullptr; 
+// }

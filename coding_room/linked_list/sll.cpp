@@ -22,11 +22,11 @@ void test2()
     push_front(head1, 4);
     push_front(head1, 2);
     Node* head2 = nullptr;    
-    // push_front(head2, 9);
-    // push_front(head2, 8);
-    // push_front(head2, 7);
-    // push_front(head2, 5);
-    // push_front(head2, 2);
+    push_front(head2, 9);
+    push_front(head2, 8);
+    push_front(head2, 7);
+    push_front(head2, 5);
+    push_front(head2, 2);
     Node* head3 = intersect(head1, head2);//O(n)
     display(head3);//2->8->
 }
