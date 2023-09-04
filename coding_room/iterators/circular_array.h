@@ -26,63 +26,82 @@ public:
     void clear();
     T& operator[](int);
 
-    class iterator
+class iterator
+{
+private:
+    int current;
+    T* array;
+    int capacity;
+
+public:
+    iterator(int index, T* arr, int cap) : current(index), array(arr), capacity(cap) {}
+    iterator() : current(0), array(nullptr), capacity(0) {}
+
+    T& operator*()
     {
-    private:
-        int current;
-        T* array;
-        int capacity;
-
-    public:
-        iterator(int index, T* arr, int cap) : current(index), array(arr), capacity(cap) {}
-        iterator() : current(0), array(nullptr), capacity(0) {}
-
-        T& operator*()
+        if (current < 0 || current >= capacity)
         {
-            return array[current];
+            throw std::out_of_range("Iterator out of range");
         }
+        return array[current];
+    }
 
-        bool operator!=(const iterator& other)
-        {
-            return current != other.current;
-        }
+    bool operator!=(const iterator& other)
+    {
+        return current != other.current;
+    }
 
-        iterator& operator++()
-        {
-            current = (current + 1) % capacity;
-            return *this;
-        }
+    iterator& operator++()
+    {
+        current = (current + 1) % capacity;
+        return *this;
+    }
 
-        iterator operator++(int)
-        {
-            iterator temp = *this;
-            ++(*this);
-            return temp;
-        }
+    iterator operator++(int)
+    {
+        iterator temp = *this;
+        ++(*this);
+        return temp;
+    }
 
-        iterator& operator--()
-        {
-            current = (current - 1 + capacity) % capacity;
-            return *this;
-        }
+    iterator& operator--()
+    {
+        current = (current - 1 + capacity) % capacity;
+        return *this;
+    }
 
-        iterator operator--(int)
-        {
-            iterator temp = *this;
-            --(*this);
-            return temp;
-        }
-    };
+    iterator operator--(int)
+    {
+        iterator temp = *this;
+        --(*this);
+        return temp;
+    }
+};
 
-    iterator begin()
+
+iterator begin()
+{
+    if (is_empty())
+    {
+        return iterator(-1, array, capacity); // Handle empty array case
+    }
+    else
     {
         return iterator(front, array, capacity);
     }
+}
 
-    iterator end()
+iterator end()
+{
+    if (is_empty())
     {
-        return iterator((back + 1) % capacity, array, capacity);
+        return iterator(-1, array, capacity); // Handle empty array case
     }
+    else
+    {
+        return iterator((back) % capacity, array, capacity); // Include the last element
+    }
+}
 
 
         
