@@ -1,6 +1,7 @@
 #include <iostream>
 #include "circular_array.h"
 
+
 using namespace std;
 
 int main()
@@ -27,10 +28,10 @@ int main()
     cout<<endl;        
     //12,10,8,6,4,
 
-    // ptr = arr.begin();
-    // ptr = ++ptr;    
-    // ptr = --ptr;
-    // cout<<*ptr<<endl;//12
+    ptr = arr.begin();
+    ptr = ++ptr;    
+    ptr = --ptr;
+    cout<<*ptr<<endl;//12
             
     return 0; 
 }

@@ -3,38 +3,6 @@ using namespace  std;
 
 
 template <class T>
-class CircularArrayIterator
-{
-private:
-    int current;
-    T* array;
-    
-public:
-    CircularArrayIterator() : current(0), array(nullptr) {}
-
-    CircularArrayIterator(int index, T* array) : current(index), array(array) {}
-
-    bool operator != (const CircularArrayIterator &other){
-        return this->current != other.current;
-    }
-
-    CircularArrayIterator& operator++(){
-        ++this->current;
-        return *this;
-    }
-
-    CircularArrayIterator& operator--(){
-        --this->current;
-        return *this;
-    }
-    
-    T& operator*(){
-        return this->array[this->current];
-    }
-};
-
-
-template <class T>
 class CircularArray
 {
 private:
@@ -63,7 +31,7 @@ public:
     private:
         int current;
         T* array;
-        int capacity; 
+        int capacity;
 
     public:
         iterator(int index, T* arr, int cap) : current(index), array(arr), capacity(cap) {}
@@ -74,24 +42,35 @@ public:
             return array[current];
         }
 
-        // bool operator!=(const iterator& other)
-        // {
-        //     return current != other.current;
-        // }
-
         bool operator!=(const iterator& other)
         {
-            if (current == -1 && other.current == -1) {
-                return false;
-            }
             return current != other.current;
         }
-
 
         iterator& operator++()
         {
             current = (current + 1) % capacity;
             return *this;
+        }
+
+        iterator operator++(int)
+        {
+            iterator temp = *this;
+            ++(*this);
+            return temp;
+        }
+
+        iterator& operator--()
+        {
+            current = (current - 1 + capacity) % capacity;
+            return *this;
+        }
+
+        iterator operator--(int)
+        {
+            iterator temp = *this;
+            --(*this);
+            return temp;
         }
     };
 
@@ -104,6 +83,7 @@ public:
     {
         return iterator((back + 1) % capacity, array, capacity);
     }
+
 
         
 private:
