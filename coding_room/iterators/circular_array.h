@@ -26,6 +26,7 @@ public:
     void clear();
     T& operator[](int);
 
+
 class iterator
 {
 private:
@@ -52,57 +53,48 @@ public:
     }
 
     iterator& operator++()
-    {
-        current = (current + 1) % capacity;
-        return *this;
-    }
+{
+    current = (current + 1) % capacity;
+    return *this;
+}
 
-    iterator operator++(int)
-    {
-        iterator temp = *this;
-        ++(*this);
-        return temp;
-    }
+iterator operator++(int)
+{
+    iterator temp = *this;
+    ++(*this);
+    return temp;
+}
 
-    iterator& operator--()
-    {
-        current = (current - 1 + capacity) % capacity;
-        return *this;
-    }
+iterator& operator--()
+{
+    current = (current - 1 + capacity) % capacity;
+    return *this;
+}
 
-    iterator operator--(int)
-    {
-        iterator temp = *this;
-        --(*this);
-        return temp;
-    }
+iterator operator--(int)
+{
+    iterator temp = *this;
+    --(*this);
+    return temp;
+}
+
+
 };
 
 
-iterator begin()
-{
-    if (is_empty())
+    iterator begin()
     {
-        return iterator(-1, array, capacity); // Handle empty array case
+        return iterator(front, this->array, this->capacity);
     }
-    else
-    {
-        return iterator(front, array, capacity);
-    }
-}
 
-iterator end()
-{
-    if (is_empty())
-    {
-        return iterator(-1, array, capacity); // Handle empty array case
-    }
-    else
-    {
-        return iterator((back) % capacity, array, capacity); // Include the last element
-    }
-}
 
+    iterator end()
+    {
+        if(is_full()){
+            return iterator(back, this->array, this->capacity);
+        }
+        return iterator(back + 1, this->array, this->capacity);
+    }
 
         
 private:
