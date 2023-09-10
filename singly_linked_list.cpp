@@ -16,12 +16,12 @@ template<typename T>
 class SLL{
 private:
     node<T> *head;
-    node<T> *tail;
+    node<T> *prev;
 public:
 
     SLL(){
         head = nullptr;
-        tail = nullptr;
+        prev = nullptr;
     }
 
     ~SLL(){
@@ -126,9 +126,17 @@ public:
         return head->value;
     }
 
-    void reverse(){
-        node<T>* temp = new Node<T>;
+    void reverse()
+    {
+        node<T>* temp = new node<T>;
         temp = head;
+
+        while(head->next != nullptr)
+        {
+            temp->next;
+            temp->next = head;
+            head->next;
+        }
         
     }
 
@@ -162,6 +170,10 @@ void ex1(){
     cout << l1[0] << endl;
 
     cout << l1.size() << endl;
+
+    l1.reverse();
+
+    l1.display();
 
    
 }
