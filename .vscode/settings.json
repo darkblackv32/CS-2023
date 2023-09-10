@@ -71,6 +71,18 @@
     "type_traits": "cpp",
     "utility": "cpp",
     "valarray": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "deque": "cpp",
+    "array": "cpp",
+    "forward_list": "cpp",
+    "list": "cpp",
+    "string": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp",
+    "vector": "cpp",
+    "string_view": "cpp",
+    "initializer_list": "cpp",
+    "span": "cpp",
+    "regex": "cpp"
   }
 }

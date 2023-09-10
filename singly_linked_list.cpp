@@ -24,6 +24,10 @@ public:
         tail = nullptr;
     }
 
+    ~SLL(){
+        this->clear();
+    }
+
     bool is_empty(){
         return (head == nullptr);
     }
@@ -73,7 +77,7 @@ public:
         head = nullptr;
     } 
 
-    void del(){
+    void del(int pos){
 
     }
 
@@ -83,28 +87,58 @@ public:
 
     void display(){
         node<T> *curr = head;
-        // cout << "list: " << " ";
         while(curr != nullptr)
         {
             cout << curr->value << " ";
             curr = curr->next;
         }
+        cout << endl;
     }
 
-    // void clear(){
-    //     while(head!= nullptr){
-    //         Nodo<T>* temp = head;
-    //         head = head->next;
-    //         delete temp;
-    //     }
-    // }
+    void clear(){
+        while(head!= nullptr){
+            node<T>* temp = new node<T>;
+            temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
+
+    int size(){
+        int it = 0;
+        do{
+            head = head->next;
+            it++;
+        }while(head->next != nullptr);
+        return it;
+    }
+
+    T& operator [](int index){
+        
+        if(index == 0){
+            return head->value;
+        }
+
+        for(int i = 0; i <= index; i++){
+            head = head->next;
+        }
+
+        return head->value;
+    }
+
+    void reverse(){
+        node<T>* temp = new Node<T>;
+        temp = head;
+        
+    }
+
 };
 
 
 
 int main(){
 
-    // ex1();
+    ex1();
     // ex2();
     // ex3();
    
@@ -115,15 +149,21 @@ void ex1(){
 
     SLL<string> l1;
 
-    // cout << boolalpha << l1.is_empty() << endl;;
+    // cout << "is empty? " << boolalpha << l1.is_empty() << endl;
 
-    // l1.push_back("The Beatles");
-    // l1.push_back("-");
-    // l1.push_back(" Across The Universe");
-    // cout <<
-    // cout << boolalpha << l1.is_empty() << endl;
+    l1.push_back("The Beatles");
+    l1.push_back("-");
+    l1.push_back("Across The Universe");
+    l1.push_front("1.");
+    // cout << "is empty? " << boolalpha << l1.is_empty() << endl;
 
-    // l1.display();
+    l1.display();
+
+    cout << l1[0] << endl;
+
+    cout << l1.size() << endl;
+
+   
 }
 
 void ex2(){
