@@ -23,8 +23,16 @@ public:
         makeEmpty();    
     }
 
-    const T& findMin() const;
-    const T& findMax() const;
+    const T& findMin() const{
+        
+        findMin(root);
+
+    }   
+
+    const T& findMax() const{
+
+        findMax(root);
+    }
 
     bool contains(const T& x) const
     {   
@@ -186,10 +194,10 @@ int main() {
     cout << "Does the tree contain " << elementToFind << "? " << (b1.contains(elementToFind) ? "Yes" : "No") << endl;
 
     cout << "Tree elements: ";
-    // b1.printTree();
+    b1.printTree();
 
-    b1.remove(5);
-    cout << "After removing " << elementToFind << ": ";
+    // b1.remove(5);
+    // cout << "After removing " << elementToFind << ": ";
     // b1.printTree();
 
     return 0;
