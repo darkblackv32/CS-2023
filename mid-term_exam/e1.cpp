@@ -42,29 +42,36 @@ void q1()
     
     */
 
-    // int a[10] = {9, 8, 7, 2, 5, 7, 15, 11, 34, 1};
+    int a[10] = {9, 8, 7, 2, 5, 7, 15, 11, 34, 1};
 
-    // print_arr(a, 10);
+    print_arr(a, 10);
 
-    // quicksort(a, 0, 9);
+    quicksort(a, 0, 9);
 
-    // print_arr(a, 10);
-
-        // cout << "a<<1 = " << (9 << 1) << endl;
+    print_arr(a, 10);
 
 
     //* Heapsort:
+    //! The heapsort procedure takes O(n lg n), since the call to build-max-heap takes O(n) time and each of the n - 1 calls to max_heapify takes O(lg n) time.
+   
+
+   //? advantages
+   //* time complexity of O(n lg n) in all the cases 
+   //* quite easy to understand and simple to implement if you have the max-heap class
+   //* highly consistent with very low memory usage, no extra memory space is required to work, unlike merge_sort or recursive quick_sort
+    
+    //? disadvantages
+    //* unstable sort, doesn't mantains the relative order of item that have the same key
+    //* inefficient when dealing with highly complex data
+
+
+    int A[] = {5, 1, 77, 2, 89, 1, 999};
+    int n = sizeof(A) / sizeof(A[0]);
 
     Heap h1;
-    
-    int A[] = {5, 1, 77, 2, 89};
-    int s = sizeof(A) / sizeof(A[0]);
 
-    h1.build_max_heap(A, s);  ///A, 3
-    cout << h1.size << endl;
+    h1.heap_sort(A, n);
     
-    h1.display();
-
 }
 
 

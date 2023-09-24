@@ -145,5 +145,23 @@ void Heap::build_max_heap(int A[], int n){
     }
 }
 
+void Heap::heap_sort(int A[], int n){
+
+    build_max_heap(A, n);
+
+    for (size_t i = size; i >= 1; --i)
+    {
+        swap(H[1],H[i]);
+        size--;
+        max_heapify(H, 1);
+    }
+
+    for (size_t i = 1; i <= n; i++)
+    {
+        cout << H[i] << " ";
+    }
+    cout << endl;
+}
+
 
 
