@@ -22,7 +22,7 @@ public:
     void push_back(T data){}
     T pop_front(){}
     T pop_back(){}
-    void insert(T data, int pos){}
+    void insert(T data, int pos){} //
     T& operator[](int index){}
     bool is_empty() {}
     int size() {}
