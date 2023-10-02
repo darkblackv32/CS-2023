@@ -88,6 +88,10 @@
     "bitset": "cpp",
     "memory": "cpp",
     "system_error": "cpp",
-    "typeindex": "cpp"
+    "typeindex": "cpp",
+    "iosfwd": "cpp",
+    "iterator": "cpp",
+    "algorithm": "cpp",
+    "ranges": "cpp"
   }
 }

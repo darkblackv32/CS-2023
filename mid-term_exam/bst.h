@@ -1,9 +1,11 @@
 #include <iostream>
+#include <set>
 using namespace std;
 
+set<int> s1;
 
 class BST {
-    
+public:
     struct node {
         int data;
         node* left;
@@ -122,6 +124,7 @@ class BST {
             return t;
     }
 
+
 public:
     BST() {
         root = nullptr;
@@ -157,5 +160,29 @@ public:
     void search(int x) {
         root = find(root, x);
     }
+
+    void print_padre_dos(node* root) {
+    
+        if (root == nullptr) {
+            return;  
+        }
+            
+        if (root->left != nullptr && root->right != nullptr) {
+            // cout << root->data << " "; 
+            s1.emplace(root->data);
+
+        }
+
+        print_padre_dos(root->left);
+        print_padre_dos(root->right);
+
+    }
+
+
+
+
+   
+
 };
+
 

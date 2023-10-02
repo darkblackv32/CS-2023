@@ -1,3 +1,4 @@
+#include "hash_table.h"
 #include "heap.h"
 #include "bst.h"
 #include "q1.h"
@@ -5,15 +6,16 @@
 
 using namespace std;
  
-void q1(), q2(), q3(), q4();
+void q1(), q2(), q3(), q4(), q5();
 
 
 int main(){
 
     // q1();
-    q2();
+    // q2();
     // q3();
     // q4();
+    q5();
 
 }
 
@@ -43,13 +45,13 @@ void q1()
     
     */
 
-    int a[10] = {9, 8, 7, 2, 5, 7, 15, 11, 34, 1};
+    // int a[10] = {9, 8, 7, 2, 5, 7, 15, 11, 34, 1};
 
-    print_arr(a, 10);
+    // print_arr(a, 10);
 
-    quicksort(a, 0, 9);
+    // quicksort(a, 0, 9);
 
-    print_arr(a, 10);
+    // print_arr(a, 10);
 
 
     //* Heapsort:
@@ -66,13 +68,15 @@ void q1()
     //* inefficient when dealing with highly complex data
 
 
-    int A[] = {5, 1, 77, 2, 89, 1, 999};
+    int A[] = {81, 14, 17, 71, 25, 80, 20, 31, 59, 16, 24, 70};
     int n = sizeof(A) / sizeof(A[0]);
 
     Heap h1;
 
-    h1.heap_sort(A, n);
-    
+    // h1.heap_sort(A, n);
+    h1.build_max_heap(A, n);
+    h1.display();
+
 }
 
 void q2(){
@@ -88,10 +92,65 @@ void q2(){
     t.insert(10);
     t.insert(30);
     t.pre_or_display();
+
     t.dfs_display();
  
 }
 
 void q3(){
+
+    // *We have seen two ways to handle collisions in a hash tables: open addressing and chaining. Describe the process in chaining to remove an element.
     
+    // Create a hash table with 3 indices:
+    HashTable ht(3);
+
+    // Declare the data to be stored in the hash table:
+    int arr[] = {87, 65, 77, 12, 37};
+
+    for(int i = 0; i < 5; i++)
+        ht.insertElement(arr[i]);
+
+    cout << " Hash Table " << endl;
+    ht.printAll();
+  
+    ht.removeElement(77);
+    cout << endl << " After deleting 77 " << endl;
+    ht.printAll();
+
+
+    //* in a simple form you can think of hashing with chaining as a nonrecursive form of divide-conquer, A has function determines which subset an element belongs to.
+    //* each subset is managed independently as a list, where worst-case running time for insertion and is O(1) and deletion two if the list ia doubly-linked-list 
+
+
+}
+
+
+void q4(){
+
+    //? Describe in which situations it's more convenient use a BST instead of a Max_heap and vice versa
+
+
+
+}
+
+void q5(){
+
+    BST t;
+    t.insert(8);
+    t.insert(10);
+    t.insert(14);
+    t.insert(13);
+    t.insert(3);
+    t.insert(1);
+    t.insert(4);
+    t.insert(7);
+    t.insert(6);
+
+    t.print_padre_dos(t.root);
+        for (auto it : s1) 
+        cout << it << " "; 
+
+    // t.dfs_display();
+
+
 }
